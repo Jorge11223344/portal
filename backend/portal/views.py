@@ -2,7 +2,9 @@ from django.shortcuts import render
 from .models import (
     Region,
     Comuna,
-    Inmueble
+    Inmueble,
+    SolicitudArriendo,
+    PerfilUser
 )
 from django.views.generic import (
     ListView,
@@ -14,7 +16,10 @@ from django.views.generic import (
 
 from .form import (
     RegionForm,
-    ComunaForm
+    ComunaForm,
+    InmuebleForm,
+    SolicitudArriendoForm,
+    PerfilUserForm
 )
 
 from django.urls import reverse, reverse_lazy
@@ -80,3 +85,70 @@ class ComunaDeleteView(DeleteView):
 #CRUD para Inmueble
 ###################################################################333
 
+class InmuebleListView(ListView):
+    model = Inmueble
+    template_name = "inmuebles/inmueble_list.html"
+    context_object_name = "inmuebles"
+
+
+class InmuebleCreateView(CreateView):
+    model = Inmueble
+    form_class = InmuebleForm
+    template_name = "inmuebles/inmueble_form.html"
+    success_url = reverse_lazy("inmueble_list")  # redirecciona al nombre de la direccion
+
+class InmuebleUpdateView(UpdateView):
+    model = Inmueble
+    form_class = InmuebleForm
+    template_name = "inmuebles/inmueble_form.html"
+    success_url = reverse_lazy("inmueble_list")   
+
+class InmuebleDeleteView(DeleteView):
+    model = Inmueble
+    template_name= "inmuebles/inmueble_confirm.html"
+    success_url = reverse_lazy("inmueble_list")
+
+################################################################################
+
+
+
+################################################################################3
+
+class SolicitudArriendoListView(ListView):
+    model = SolicitudArriendo
+    template_name = "inmuebles/solicitudes_list.html"
+    context_object_name = "solicitudes"
+
+class SolicitudArriendoCreateView(CreateView):
+    model = SolicitudArriendo
+    form_class = SolicitudArriendoForm
+    template_name = "inmuebles/solicitud_form.html"
+    success_url = reverse_lazy("solicitud_list")  # redirecciona al nombre de la direccion
+
+class SolicitudArriendoUpdateView(UpdateView):
+    model = SolicitudArriendo
+    form_class = SolicitudArriendoForm
+    template_name = "inmuebles/inmueble_form.html"
+    success_url = reverse_lazy("solicitud_list") 
+
+class SolicitudArriendoDeleteView(DeleteView):
+    model = SolicitudArriendo
+    template_name= "inmuebles/solicitud_confirm.html"
+    success_url = reverse_lazy("solicitud_list")  
+
+
+######################################################
+
+#####################################################
+
+class PerfilUserUpdateView(UpdateView):
+    model = PerfilUser
+    form_class = PerfilUserForm
+    template_name = "inmuebles/inmueble_form.html"
+    success_url = reverse_lazy("solicitud_list") 
+
+class PerfilUserDeleteView(UpdateView):
+    model = PerfilUser
+    form_class = PerfilUserForm
+    template_name = "inmuebles/inmueble_form.html"
+    success_url = reverse_lazy("solicitud_list") 

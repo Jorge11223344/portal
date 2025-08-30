@@ -59,7 +59,7 @@ class SolicitudArriendo(models.Model):
 
     uuid = models.UUIDField(default=uuid.uuid4, editable=False)
     inmueble = models.ForeignKey(Inmueble, on_delete=models.CASCADE, related_name="solicitudes")
-    arrendatario= models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="solicitudes_enviadas")
+    arrendatario= models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="solicitudes_enviadas", blank=True, null=True)
     mensaje = models.TextField()
     estado = models.CharField(max_length=10, choices=EstadoSolicitud.choices, default=EstadoSolicitud.pendiente)
     creado = models.DateTimeField(auto_now_add=True)

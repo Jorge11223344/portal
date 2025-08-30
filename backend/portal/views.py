@@ -1,16 +1,20 @@
 from django.shortcuts import render
 from .models import (
-    Region
+    Region,
+    Comuna,
+    Inmueble
 )
 from django.views.generic import (
     ListView,
     CreateView,
-    UpdateView
+    UpdateView,
+    DeleteView
 )
 
 
 from .form import (
-    RegionForm
+    RegionForm,
+    ComunaForm
 )
 
 from django.urls import reverse, reverse_lazy
@@ -37,7 +41,42 @@ class RegionUpdateView(UpdateView):
 
 
 
+class RegionDeleteView(DeleteView):
+    model = Region
+    template_name= "inmuebles/region_confirm.html"
+    success_url = reverse_lazy("region_list")
 
 
+###################################################################
+# CRUD para comuna
+####################################################################
 
+class ComunaListView(ListView):
+    model = Comuna
+    template_name = "inmuebles/comuna_list.html"
+    context_object_name = "comunas"
+
+class ComunaCreateView(CreateView):
+    model = Comuna
+    form_class = ComunaForm
+    template_name = "inmuebles/comuna_form.html"
+    success_url = reverse_lazy("comuna_list")  # redirecciona al nombre de la direccion
+
+
+class ComunaUpdateView(UpdateView):
+    model = Comuna
+    form_class = ComunaForm
+    template_name = "inmuebles/comuna_form.html"
+    success_url = reverse_lazy("comuna_list") 
+
+class ComunaDeleteView(DeleteView):
+    model = Comuna
+    template_name= "inmuebles/comuna_delete.html"
+    success_url = reverse_lazy("comuna_list")
+
+
+#####################################################################
+
+#CRUD para Inmueble
+###################################################################333
 

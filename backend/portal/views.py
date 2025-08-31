@@ -111,7 +111,7 @@ class InmuebleDeleteView(DeleteView):
 ################################################################################
 
 
-
+#CRUD solicitu de arriendo
 ################################################################################3
 
 class SolicitudArriendoListView(ListView):
@@ -128,7 +128,7 @@ class SolicitudArriendoCreateView(CreateView):
 class SolicitudArriendoUpdateView(UpdateView):
     model = SolicitudArriendo
     form_class = SolicitudArriendoForm
-    template_name = "inmuebles/inmueble_form.html"
+    template_name = "inmuebles/inmueble_form.html"  ###revisar el form si esta bien puesto
     success_url = reverse_lazy("solicitud_list") 
 
 class SolicitudArriendoDeleteView(DeleteView):
@@ -138,17 +138,12 @@ class SolicitudArriendoDeleteView(DeleteView):
 
 
 ######################################################
-
+#CRUD PerfilUser
 #####################################################
 
 class PerfilUserUpdateView(UpdateView):
     model = PerfilUser
     form_class = PerfilUserForm
-    template_name = "inmuebles/inmueble_form.html"
+    template_name = "usuarios/perfil_form.html"
     success_url = reverse_lazy("solicitud_list") 
 
-class PerfilUserDeleteView(UpdateView):
-    model = PerfilUser
-    form_class = PerfilUserForm
-    template_name = "inmuebles/inmueble_form.html"
-    success_url = reverse_lazy("solicitud_list") 

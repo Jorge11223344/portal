@@ -37,14 +37,16 @@ class SolicitudArriendoForm(forms.ModelForm):
             "inmueble",
             "arrendatario",
             "mensaje",
-            "estado",
+            "estado"
            
 
         ]
 
 class PerfilUserForm(forms.ModelForm):
     class Meta:
-         fields = [
+        model = PerfilUser
+        fields = [
             "tipo_usuario",
-            "rut"
-         ]
+            "rut",
+            "password"
+        ]

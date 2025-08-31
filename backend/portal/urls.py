@@ -27,6 +27,6 @@ urlpatterns = [
     path('borrar_solicitud/<int:pk>/', SolicitudArriendoDeleteView.as_view(), name="borrar_solicitud"),
 
     path('actualizar_perfil/<int:pk>/', PerfilUserUpdateView.as_view(), name="actualizar_perfil"),
-    path('borrar_perfil/<int:pk>/', PerfilUserDeleteView.as_view(), name="borrar_solicitud"),
+    
 
 ]

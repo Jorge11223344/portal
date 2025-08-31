@@ -6,13 +6,13 @@
     <title>Document</title>
 </head>
 <body>
-    
-    {% for s in solicitudes %}
-        solicitud {{s.id}}
-        {{s.estado}}
-    {% endfor %}
+    <form method="post" >
 
 
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit">Enviar solicitud</button>
+    </form>
 
 </body>
 </html>

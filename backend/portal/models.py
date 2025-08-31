@@ -74,7 +74,7 @@ class PerfilUser(AbstractUser):
 
        
     class TipoUsuario(models.TextChoices):
-        ARRENDATARIO = "ARRENDATARIO", _("Pendiente")
+        ARRENDATARIO = "ARRENDATARIO", _("Arrendatario")
         ARRENDADOR = "ARRENDADOR", _("Arrendador")
         
     

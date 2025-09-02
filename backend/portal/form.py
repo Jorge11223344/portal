@@ -3,6 +3,7 @@ from django import forms
 from .models import *
 
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth.models import User
 
 class RegionForm(forms.ModelForm):
     class Meta:
@@ -21,6 +22,7 @@ class InmuebleForm(forms.ModelForm):
         fields = [
             "nombre",
             "descripcion",
+            "imagen",
             "m2_construidos",
             "m2_totales",
             "estacionamientos",

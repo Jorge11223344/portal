@@ -177,6 +177,7 @@ def register_view(request):
     else:
         form = RegisterForm()
     return render(request, "registration/register.html", {"form": form})
+
 def login_view(request):
     if request.user.is_authenticated:
         return redirect("home")
@@ -187,6 +188,7 @@ def login_view(request):
         messages.success(request, "Has iniciado sesión.")
         return redirect("home")
     return render(request, "registration/login.html", {"form": form})
+
 @login_required
 def logout_view(request):
     logout(request)

@@ -32,7 +32,7 @@ class Inmueble(models.Model):
     propietario = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="inmuebles", blank=True, null=True)
 
     nombre = models.CharField(max_length=100)
-    imagen= models.ImageField(upload_to="inmuebles/", default="sin imagen/")
+    imagen= models.ImageField(upload_to="inmuebles/", default="sin_imagen/")
     descripcion = models.TextField()
     m2_construidos = models.FloatField(default=0)
     m2_totales = models.FloatField(default=0)

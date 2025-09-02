@@ -3,16 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>regiones lista</title>
 </head>
 <body>
+
+    {% for region in regiones%}
+        {{region.nro_region}}
+    {% endfor%}
     
-    {% for r in regiones %}
-        {{r.nro_region}}
-         {{r.nombre}}
-    {% endfor %}
-
-
-
 </body>
 </html>

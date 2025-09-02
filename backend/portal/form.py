@@ -1,9 +1,9 @@
-
 from django import forms
 from .models import *
-
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
+
+
 
 class RegionForm(forms.ModelForm):
     class Meta:
@@ -11,10 +11,12 @@ class RegionForm(forms.ModelForm):
         fields = ["nro_region","nombre"]
 
 
+
 class ComunaForm(forms.ModelForm):
     class Meta:
         model = Comuna
-        fields = ["region","nombre"]
+        fields = ["region", "nombre"]
+
 
 class InmuebleForm(forms.ModelForm):
     class Meta:
@@ -34,6 +36,7 @@ class InmuebleForm(forms.ModelForm):
             "tipo_de_inmueble",
         ]
 
+
 class SolicitudArriendoForm(forms.ModelForm):
     class Meta:
         model = SolicitudArriendo
@@ -42,22 +45,20 @@ class SolicitudArriendoForm(forms.ModelForm):
             "arrendatario",
             "mensaje",
             "estado"
-           
-
+            
         ]
 
 class PerfilUserForm(forms.ModelForm):
     class Meta:
         model = PerfilUser
-        fields = [
-            "tipo_usuario",
-            "rut",
-            "password"
-        ]
+        fields = ["tipo_usuario", "rut", "password"] 
+
+
 
 
 class RegisterForm(UserCreationForm):
     email = forms.EmailField(required=True)
+
     class Meta:
         model = PerfilUser
         fields = [
@@ -71,6 +72,9 @@ class RegisterForm(UserCreationForm):
             "password1",
             "password2",
         ]
+
 class LoginForm(AuthenticationForm):
     username = forms.CharField(label="Usuario")
     password = forms.CharField(label="Contraseña", widget=forms.PasswordInput)
+
+    

@@ -6,13 +6,12 @@
     <title>Document</title>
 </head>
 <body>
-    
     {% for s in solicitudes %}
-        solicitud {{s.id}}
-        {{s.estado}}
+        <div>
+            <p>{{s.nombre}}</p>
+            <p>{{s.id}}</p> 
+        </div>
     {% endfor %}
-
-
-
+    
 </body>
 </html>

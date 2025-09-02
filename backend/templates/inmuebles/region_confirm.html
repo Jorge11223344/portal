@@ -1,9 +1,6 @@
-
-
 <form method="post">{% csrf_token %}
-    <p>estas segura que borre la region  {{object.nombre}}?</p>
+    <p>Estas seguro que quieres borrar la region? {{object.nombre}}</p>
     {{ form }}
     <input type="submit" value="Confirm">
-
     
 </form>

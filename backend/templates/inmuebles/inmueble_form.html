@@ -7,12 +7,10 @@
 </head>
 <body>
     <form method="post" enctype="multipart/form-data">
-
-
         {% csrf_token %}
         {{form.as_p}}
-        <button type="submit">Enviar Inmueble</button>
+        <button type="submit">enviar inmueble</button>
     </form>
-
+    
 </body>
 </html>

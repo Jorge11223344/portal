@@ -14,6 +14,7 @@ from pathlib import Path
 import os
 from dotenv import load_dotenv
 
+
 load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -24,18 +25,22 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-
 SECRET_KEY =os.environ.get('SECRET_KEY')
+
 # SECURITY WARNING: don't run with debug turned on in production!
-
-DEBUG=os.environ.get('DEBUG')
-
+DEBUG = os.environ.get('DEBUG')
 
 ALLOWED_HOSTS = ['*']
 
+
+
+
+
 CSRF_TRUSTED_ORIGINS = [
-    "https://localhost:8000"
+"https://localhost:8000"
 ]
+
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -45,10 +50,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    "portal",
+    'portal',
 ]
-
-
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -89,17 +92,17 @@ DATABASES = {
         "NAME": os.environ.get('POSTGRES_DB'),
         "USER": os.environ.get('POSTGRES_USER'),
         "PASSWORD": os.environ.get('POSTGRES_PASSWORD'),
-        "HOST":os.environ.get('POSTGRES_HOST'),
+        "HOST": os.environ.get('POSTGRES_HOST'),
         "PORT": "5432",
     }
 }
 
 
+
 AUTH_USER_MODEL = "portal.PerfilUser"
-
-
-
-
+LOGIN_URL = "login"
+LOGIN_REDIRECT_URL = "home"
+LOGOUT_REDIRECT_URL = "login"
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
@@ -132,12 +135,11 @@ USE_I18N = True
 USE_TZ = True
 
 
-
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
-LOGIN_URL = "login"                # si alguien no está logueado, lo manda a esa vista
-LOGIN_REDIRECT_URL = "home"        # a dónde redirigir después de iniciar sesión
-LOGOUT_REDIRECT_URL = "login"
+
+
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/

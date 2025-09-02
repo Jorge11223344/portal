@@ -6,15 +6,12 @@
     <title>Document</title>
 </head>
 <body>
-   
     {% for i in inmuebles %}
-    <Div>
-         {{i.nombre}}
-          {{i.id}}
-    </Div>      
+        <div>
+            <p>{{i.nombre}}</p>
+            <p>{{i.id}}</p> 
+        </div>
     {% endfor %}
-
     
-
 </body>
 </html>

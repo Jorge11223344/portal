@@ -97,6 +97,10 @@ DATABASES = {
 
 AUTH_USER_MODEL = "portal.PerfilUser"
 
+
+
+
+
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
 
@@ -131,7 +135,9 @@ USE_TZ = True
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
-
+LOGIN_URL = "login"                # si alguien no está logueado, lo manda a esa vista
+LOGIN_REDIRECT_URL = "home"        # a dónde redirigir después de iniciar sesión
+LOGOUT_REDIRECT_URL = "login"
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/

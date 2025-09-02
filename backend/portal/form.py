@@ -2,6 +2,8 @@
 from django import forms
 from .models import *
 
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+
 class RegionForm(forms.ModelForm):
     class Meta:
         model = Region
@@ -50,3 +52,23 @@ class PerfilUserForm(forms.ModelForm):
             "rut",
             "password"
         ]
+
+
+class RegisterForm(UserCreationForm):
+    email = forms.EmailField(required=True)
+    class Meta:
+        model = PerfilUser
+        fields = [
+            "username",
+            "first_name",
+            "last_name",
+            "email",
+            "rut",
+            "imagen",
+            "tipo_usuario",
+            "password1",
+            "password2",
+        ]
+class LoginForm(AuthenticationForm):
+    username = forms.CharField(label="Usuario")
+    password = forms.CharField(label="Contraseña", widget=forms.PasswordInput)

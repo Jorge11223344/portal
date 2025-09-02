@@ -6,6 +6,17 @@ from .views import *
 
 
 urlpatterns = [
+
+
+    path("", home , name="home"),
+    path("accounts/login/",  login_view,  name="login"),
+    path("accounts/logout/", logout_view, name="logout"),
+    path("accounts/register/", register_view, name="register"),
+
+
+
+
+
     path('listar_region/',RegionListView.as_view(),  name="region_list"),
     path('crear_region/', RegionCreateView.as_view(), name="crear_region"),
     path('actualizar_region/<int:pk>/', RegionUpdateView.as_view(), name="actualizar_region"),
@@ -27,6 +38,7 @@ urlpatterns = [
     path('borrar_solicitud/<int:pk>/', SolicitudArriendoDeleteView.as_view(), name="borrar_solicitud"),
 
     path('actualizar_perfil/<int:pk>/', PerfilUserUpdateView.as_view(), name="actualizar_perfil"),
-    
 
+
+    
 ]

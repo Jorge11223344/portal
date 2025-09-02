@@ -6,12 +6,13 @@
     <title>Document</title>
 </head>
 <body>
-    <form method="post" enctype="multipart/form-data">
+    <h1>registro</h1>
+      <form method="post" >
 
 
         {% csrf_token %}
         {{form.as_p}}
-        <button type="submit">Enviar Inmueble</button>
+        <button type="submit">Enviar solicitud</button>
     </form>
 
 </body>

@@ -40,13 +40,7 @@ class InmuebleForm(forms.ModelForm):
 class SolicitudArriendoForm(forms.ModelForm):
     class Meta:
         model = SolicitudArriendo
-        fields = [
-            "inmueble",
-            "arrendatario",
-            "mensaje",
-            "estado"
-            
-        ]
+        fields = ["mensaje"]
 
 class PerfilUserForm(forms.ModelForm):
     class Meta:
@@ -75,6 +69,5 @@ class RegisterForm(UserCreationForm):
 
 class LoginForm(AuthenticationForm):
     username = forms.CharField(label="Usuario")
-    password = forms.CharField(label="Contraseña", widget=forms.PasswordInput)
-
-    
+    password = forms.CharField(label="Contraseña", widget=forms.PasswordInput)  
+      

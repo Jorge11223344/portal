@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -50,50 +51,50 @@
 </head>
 <body>
 
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">
-      <a class="navbar-brand fw-bold" href="#">Inmobiliaria Conecta</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto me-3">
-          <li class="nav-item"><a class="nav-link active" href="#">Inicio</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Propiedades</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Arrendadores</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Arrendatarios</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Contacto</a></li>
-        </ul>
-        <!-- Botón que abre el modal -->
-        <button class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
-      </div>
-    </div>
-  </nav>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+        <a class="navbar-brand fw-bold" href="#">Inmobiliaria Conecta</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto me-3">
+            <li class="nav-item"><a class="nav-link active" href="#">Inicio</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Propiedades</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Arrendadores</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Arrendatarios</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Contacto</a></li>
+            </ul>
+            <!-- Botón que abre el modal -->
+            <button class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
+        </div>
+        </div>
+        {% if user.is_authenticated %}
+            <p>Hola, {{ user.get_full_name|default:user.username }}</p>
+        {% else %}
+            <p>Hola, visitante. <a href="{% url 'login' %}">Inicia sesión</a></p>
+        {% endif %}
+    </nav>
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="hero-content">
-      <h1 class="fw-bold display-4">Encuentra tu próximo hogar</h1>
-      <p class="lead">Conecta arrendadores y arrendatarios fácilmente</p>
-      <a href="#propiedades" class="btn btn-primary btn-lg">Ver Propiedades</a>
-    </div>
-  </section>
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+        <h1 class="fw-bold display-4">Encuentra tu próximo hogar</h1>
+        <p class="lead">Conecta arrendadores y arrendatarios fácilmente</p>
+        <a href="#propiedades" class="btn btn-primary btn-lg">Ver Propiedades</a>
+        </div>
+    </section>
 
-  <!-- Propiedades -->
-   {% for i in inmuebles %}
-   {% endfor %}
-  
+    <!-- Propiedades -->
   <section id="propiedades" class="py-5">
     <div class="container">
       <h2 class="text-center mb-4 fw-bold">Propiedades Destacadas</h2>
       <div class="row g-4">
-        
-        <!-- Card 1 -->
         {% for i in inmuebles %}
+        <!-- Card 1 -->
         <div class="col-md-4">
           <div class="card shadow-sm h-100">
-          
             <img src="https://picsum.photos/400/250?random=1" class="card-img-top" alt="Propiedad 1">
             <div class="card-body">
               <h5 class="card-title">{{i.nombre}}</h5>
@@ -106,34 +107,39 @@
                 <li><strong>Estacionamiento:</strong> 1</li>
               </ul>
               <p class="card-price">$450.000 / mes</p>
-              <a href="#" class="btn btn-outline-primary w-100">Solicitar Arrendamiento</a>
+              <a href="{% url 'solicitud_create_for_inmueble' i.id %}" class="btn btn-outline-primary w-100">Solicitar Arrendamiento</a>
             </div>
-          
-          </div>          
-        </div>   
+          </div>
+        </div>
         {% endfor %}
-
       </div>
     </div>
   </section>
-  
-  <!-- Footer -->
-  <footer>
-    <div class="container text-center">
-      <p class="mb-0">© 2025 Inmobiliaria Conecta. Todos los derechos reservados.</p>
-    </div>
-  </footer>
+    
+        
+   
 
-  <!-- Modal Login -->
-  <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+
+
+       
+
+    <!-- Footer -->
+    <footer>
+        <div class="container text-center">
+        <p class="mb-0">© 2025 Inmobiliaria Conecta. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+        <!-- Modal Login -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
+        <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title fw-bold" id="loginModalLabel">Iniciar Sesión</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            <h5 class="modal-title fw-bold" id="loginModalLabel">Iniciar Sesión</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
         </div>
         <div class="modal-body">
-          <form method="post" action="{% url 'login' %}">
+            <form method="post" action="{% url 'login' %}">
             {% csrf_token %}
             
             {# Si usas tu LoginForm de Django #}
@@ -152,17 +158,19 @@
             </div>
 
             <button type="submit" class="btn btn-primary w-100">Ingresar</button>
-          </form>
+            </form>
         </div>
         <div class="modal-footer">
-          <small class="text-muted">¿No tienes cuenta?
-          <a href="{% url 'register' %}">Regístrate</a></small>
+            <small class="text-muted">¿No tienes cuenta?
+            <a href="{% url 'register' %}">Regístrate</a>
+            </small>
         </div>
-      </div>
+        </div>
     </div>
-  </div>
+    </div>
 
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

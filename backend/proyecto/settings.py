@@ -37,8 +37,9 @@ ALLOWED_HOSTS = ['*']
 
 
 CSRF_TRUSTED_ORIGINS = [
-"https://localhost:8000"
+        "https://localhost:8000"
 ]
+
 
 
 # Application definition
@@ -150,3 +151,18 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+#################################################################################################################
+# Cookies: fija el dominio *exacto* base de Codespaces
+CSRF_COOKIE_DOMAIN = ".app.github.dev"  #ES LO CLAVE para no hacer 403 al iniciar sesion,
+
+#Hace que la cookie CSRF sea válida para cualquier 
+# subdominio *.app.github.dev (p. ej. tu codespace que
+#  cambia de nombre). Sin esto, si la cookie queda atada
+#  a un subdominio anterior, el token puede no viajar y 
+# Django responde 403.
+##############################################################################################################
+
+
+   

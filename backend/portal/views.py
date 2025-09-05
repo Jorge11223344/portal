@@ -7,7 +7,7 @@ from django.urls import reverse_lazy
 from .models import Inmueble, SolicitudArriendo
 from .form import RegisterForm, LoginForm, PerfilUserForm, SolicitudArriendoForm
 from django.views.decorators.http import require_POST
-
+from django.views.decorators.csrf import ensure_csrf_cookie, csrf_protect
 # HOME: lista de inmuebles
 class HomeInmuebleListView(ListView):
     model = Inmueble
@@ -29,6 +29,10 @@ def register_view(request):
         form = RegisterForm()
     return render(request, "registration/register.html", {"form": form})
 
+
+
+@ensure_csrf_cookie      # ← asegura cookie en el GET
+@csrf_protect    # ← protege el POST
 def login_view(request):
     if request.user.is_authenticated:
         return redirect("home")

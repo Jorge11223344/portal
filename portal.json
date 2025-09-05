@@ -1,0 +1,354 @@
+[
+    {
+        "model": "portal.region",
+        "pk": 4,
+        "fields": {
+            "nro_region": "VII",
+            "nombre": "talca"
+        }
+    },
+    {
+        "model": "portal.region",
+        "pk": 5,
+        "fields": {
+            "nro_region": "III",
+            "nombre": "Atacama"
+        }
+    },
+    {
+        "model": "portal.comuna",
+        "pk": 2,
+        "fields": {
+            "nombre": "copiapo",
+            "region": 5
+        }
+    },
+    {
+        "model": "portal.inmueble",
+        "pk": 2,
+        "fields": {
+            "propietario": null,
+            "nombre": "casa1",
+            "imagen": "sin imagen/",
+            "descripcion": "ygygyg",
+            "m2_construidos": 34.0,
+            "m2_totales": 56.0,
+            "estacionamientos": 1,
+            "habitaciones": 3,
+            "banos": 2,
+            "direccion": "Av. Laguna Grande",
+            "precio_mensual": "34555.00",
+            "creado": "2025-08-30T01:35:42.501Z",
+            "actualizado": "2025-08-30T01:35:42.501Z",
+            "comuna": 2,
+            "tipo_de_inmueble": "CASA"
+        }
+    },
+    {
+        "model": "portal.inmueble",
+        "pk": 3,
+        "fields": {
+            "propietario": null,
+            "nombre": "pizzaactualizado",
+            "imagen": "sin imagen/",
+            "descripcion": "sdfwkcsbcs",
+            "m2_construidos": 3.0,
+            "m2_totales": 3.0,
+            "estacionamientos": 6,
+            "habitaciones": 1,
+            "banos": 3,
+            "direccion": "Av. Laguna Grande",
+            "precio_mensual": "43535.00",
+            "creado": "2025-08-30T01:37:02.219Z",
+            "actualizado": "2025-08-30T01:42:21.781Z",
+            "comuna": 2,
+            "tipo_de_inmueble": "CASA"
+        }
+    },
+    {
+        "model": "portal.inmueble",
+        "pk": 4,
+        "fields": {
+            "propietario": null,
+            "nombre": "2cas",
+            "imagen": "inmuebles/casa.jpg",
+            "descripcion": "uftiuv",
+            "m2_construidos": 2.0,
+            "m2_totales": 3.0,
+            "estacionamientos": 2,
+            "habitaciones": 23,
+            "banos": 2,
+            "direccion": "Av. Laguna Grande",
+            "precio_mensual": "22.00",
+            "creado": "2025-09-02T22:03:37.662Z",
+            "actualizado": "2025-09-02T22:03:37.662Z",
+            "comuna": 2,
+            "tipo_de_inmueble": "CASA"
+        }
+    },
+    {
+        "model": "portal.solicitudarriendo",
+        "pk": 2,
+        "fields": {
+            "uuid": "22fc5a45-f08f-4507-bc4b-812bd96cf4d7",
+            "inmueble": 2,
+            "arrendatario": 1,
+            "mensaje": "dfssnckscd",
+            "estado": "A",
+            "creado": "2025-08-31T00:34:09.196Z",
+            "actualizado": "2025-08-31T00:34:09.196Z"
+        }
+    },
+    {
+        "model": "portal.perfiluser",
+        "pk": 1,
+        "fields": {
+            "password": "pbkdf2_sha256$600000$GzCNkpB2KXQmZmRsW7lMZa$52qRHhWFP/xC2KzgEwzknF26rE6OXFGyoI4rb/+LLSY=",
+            "last_login": "2025-09-02T20:28:35.699Z",
+            "is_superuser": true,
+            "username": "admin",
+            "first_name": "",
+            "last_name": "",
+            "email": "",
+            "is_staff": true,
+            "is_active": true,
+            "date_joined": "2025-08-29T00:00:01.682Z",
+            "tipo_usuario": "ARRENDATARIO",
+            "rut": null,
+            "imagen": "foto_perfil/default-profile.avif",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "portal.perfiluser",
+        "pk": 2,
+        "fields": {
+            "password": "pbkdf2_sha256$600000$wzE37GKDuq76yCsEQmcAk4$jU1wuysIdULI9Z3CRYBQuOBfFhuL7hCq9orzqVV8a7w=",
+            "last_login": "2025-09-02T19:59:55.249Z",
+            "is_superuser": false,
+            "username": "jotgito",
+            "first_name": "jorge",
+            "last_name": "muñoz",
+            "email": "jimunozacuna@gmail.com",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2025-09-02T00:26:26.656Z",
+            "tipo_usuario": "ARRENDADOR",
+            "rut": "131313131",
+            "imagen": "foto_perfil/default-profile.avif",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "portal.perfiluser",
+        "pk": 4,
+        "fields": {
+            "password": "pbkdf2_sha256$600000$d5Tr8IYGnbYCk7tioJcQiz$t6YKKKtkggj48Cgd7LH1jiHdFAUmqQGJc5gml60HxeY=",
+            "last_login": "2025-09-02T01:12:54.489Z",
+            "is_superuser": false,
+            "username": "felipe",
+            "first_name": "jorge",
+            "last_name": "Muñoz Acuña",
+            "email": "jhytgg@ghhj.com",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2025-09-02T01:12:54.357Z",
+            "tipo_usuario": "ARRENDADOR",
+            "rut": "121212432",
+            "imagen": "default-profile.avif",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "portal.perfiluser",
+        "pk": 5,
+        "fields": {
+            "password": "pbkdf2_sha256$600000$qQIgggObOj4BGHvQ4lcfiW$7bQGIMcMJrFIEtXX/olUwdgui6+0vJs4R7ZyDYJynf4=",
+            "last_login": "2025-09-02T20:28:11.147Z",
+            "is_superuser": false,
+            "username": "cuenta11",
+            "first_name": "10",
+            "last_name": "10",
+            "email": "10@gnmail.com",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2025-09-02T20:28:11.016Z",
+            "tipo_usuario": "ARRENDADOR",
+            "rut": "12121212",
+            "imagen": "fotoperfil.jp",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "portal.perfiluser",
+        "pk": 6,
+        "fields": {
+            "password": "pbkdf2_sha256$600000$te9DDsjaLZuMcCcxH3azQS$BOflkOYx9n3OFNwgz0HOhn7Hq6IzsvezWEVyJ7rMcnA=",
+            "last_login": "2025-09-02T21:01:16.255Z",
+            "is_superuser": false,
+            "username": "cuenta12",
+            "first_name": "qw",
+            "last_name": "qw",
+            "email": "qw@er.com",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2025-09-02T21:01:16.124Z",
+            "tipo_usuario": "ARRENDATARIO",
+            "rut": "123123123",
+            "imagen": "fotoperfil.jpg",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "portal.perfiluser",
+        "pk": 7,
+        "fields": {
+            "password": "pbkdf2_sha256$600000$fkoZqv8OFPmZg87fy0VL8a$v7OV5ELhx38+jB4ggqZkxiPsqJXiihc+9SfXaruEU6A=",
+            "last_login": "2025-09-02T21:15:07.758Z",
+            "is_superuser": false,
+            "username": "cuenta13",
+            "first_name": "qwe",
+            "last_name": "asd",
+            "email": "asd@asd.dg",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2025-09-02T21:15:07.631Z",
+            "tipo_usuario": "ARRENDATARIO",
+            "rut": "123123124",
+            "imagen": "fotoperfil.jpg",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "portal.perfiluser",
+        "pk": 8,
+        "fields": {
+            "password": "pbkdf2_sha256$600000$o5iUHCh0NCJj96a1dLr1lM$n/jQua2aTrUyfPayOhXtxky8V7T5E69y2+GwC+n4UWk=",
+            "last_login": "2025-09-02T21:18:36.802Z",
+            "is_superuser": false,
+            "username": "cuenta14",
+            "first_name": "qwe",
+            "last_name": "qwe",
+            "email": "qwe@qwe.com",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2025-09-02T21:18:36.667Z",
+            "tipo_usuario": "ARRENDATARIO",
+            "rut": "321321321",
+            "imagen": "fotoperfil.jpg",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "portal.perfiluser",
+        "pk": 9,
+        "fields": {
+            "password": "pbkdf2_sha256$600000$Lan8FTiXC4cFhje9asC5XY$vb43y0N6YzMMkhUSzQWXg8UkbjzLeZMpgG2q0SVUApo=",
+            "last_login": "2025-09-02T21:24:58.785Z",
+            "is_superuser": false,
+            "username": "cuenta15",
+            "first_name": "qwe",
+            "last_name": "qwe",
+            "email": "qwe@wd.sd",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2025-09-02T21:24:58.653Z",
+            "tipo_usuario": "ARRENDATARIO",
+            "rut": "32121321",
+            "imagen": "fotoperfil.jpg",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "portal.perfiluser",
+        "pk": 10,
+        "fields": {
+            "password": "pbkdf2_sha256$600000$TzBzJzFbZ7fjL2vt59g7HY$9Grr/ukdYtBmq35bk5G/Ts8pMqrxKTQQEY7wtj8Kzm4=",
+            "last_login": "2025-09-02T21:33:31.610Z",
+            "is_superuser": false,
+            "username": "cuenta16",
+            "first_name": "qwe",
+            "last_name": "asd",
+            "email": "zxc@12.dh",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2025-09-02T21:33:31.483Z",
+            "tipo_usuario": "ARRENDATARIO",
+            "rut": "21321123",
+            "imagen": "fotoperfil.jpg",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "portal.perfiluser",
+        "pk": 11,
+        "fields": {
+            "password": "pbkdf2_sha256$600000$8WDVaZHpiJB4W61ZMJZPJh$hWvWPHZLQFgzXJsTs+PKuiIGSlTbMQXCTCXlSLVmg/Y=",
+            "last_login": "2025-09-02T21:35:55.828Z",
+            "is_superuser": false,
+            "username": "cuenta17",
+            "first_name": "qwe",
+            "last_name": "asd",
+            "email": "zxa@12.dh",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2025-09-02T21:35:55.671Z",
+            "tipo_usuario": "ARRENDATARIO",
+            "rut": "2132113",
+            "imagen": "fotoperfil.jpg",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "portal.perfiluser",
+        "pk": 12,
+        "fields": {
+            "password": "pbkdf2_sha256$600000$GfCfjBAfiIzDI4SioCtr99$pWg01yUW7bjLTLFWPPkTco/CSOQ5f2+21nZshWp2nUk=",
+            "last_login": "2025-09-02T21:38:14.684Z",
+            "is_superuser": false,
+            "username": "cuenta18",
+            "first_name": "qwe",
+            "last_name": "asd",
+            "email": "ze@12.dh",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2025-09-02T21:38:14.551Z",
+            "tipo_usuario": "ARRENDATARIO",
+            "rut": "2132111",
+            "imagen": "fotoperfil.jpg",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "portal.perfiluser",
+        "pk": 13,
+        "fields": {
+            "password": "pbkdf2_sha256$600000$2CNGobb1l45MCOVjzKgagk$iy3P86nxjZaiKvtITCguPMWytqcejWs3XSOiORe8s3o=",
+            "last_login": "2025-09-02T21:59:57.935Z",
+            "is_superuser": false,
+            "username": "cuenta20",
+            "first_name": "qwe",
+            "last_name": "asd",
+            "email": "zxc@qwe.we",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2025-09-02T21:59:57.798Z",
+            "tipo_usuario": "ARRENDADOR",
+            "rut": "1231213",
+            "imagen": "default-profile.avif",
+            "groups": [],
+            "user_permissions": []
+        }
+    }
+]

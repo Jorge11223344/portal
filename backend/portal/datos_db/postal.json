@@ -1,0 +1,26 @@
+[
+    {
+        "model": "portal.region",
+        "pk": 4,
+        "fields": {
+            "nro_region": "VII",
+            "nombre": "talca"
+        }
+    },
+    {
+        "model": "portal.region",
+        "pk": 5,
+        "fields": {
+            "nro_region": "III",
+            "nombre": "Atacama"
+        }
+    },
+    {
+        "model": "portal.comuna",
+        "pk": 2,
+        "fields": {
+            "nombre": "copiapo",
+            "region": 5
+        }
+    }
+]

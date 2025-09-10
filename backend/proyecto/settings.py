@@ -162,6 +162,10 @@ CSRF_COOKIE_DOMAIN = ".app.github.dev"  #ES LO CLAVE para no hacer 403 al inicia
 #  cambia de nombre). Sin esto, si la cookie queda atada
 #  a un subdominio anterior, el token puede no viajar y 
 # Django responde 403.
+
+#Riesgo:Riesgo importante: el cookie se envía a todos los subdominios *.app.github.dev. 
+# Si visitas otro subdominio (tuyo o ajeno) que ejecute JS, podría leer esa cookie 
+# (por defecto no es HttpOnly) y exfiltrarla. En dev tolerable, no recomendado.
 ##############################################################################################################
 
 

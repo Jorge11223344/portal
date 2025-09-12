@@ -1,0 +1,26 @@
+{% extends "web/base.html" %}
+{% block title %}Editar perfil | Alquiler{% endblock %}
+{% block content %}
+<div class="container container-narrow py-4">
+  <div class="card shadow-soft">
+    <div class="card-body p-4">
+      <h4 class="mb-3">Editar perfil</h4>
+      <form method="post" enctype="multipart/form-data" novalidate>
+        {% csrf_token %}
+        {% if form.non_field_errors %}
+          <div class="alert alert-danger">{{ form.non_field_errors }}</div>
+        {% endif %}
+        {{ form.as_p }}
+        <div class="d-flex gap-2">
+          <button class="btn btn-primary btn-soft" type="submit">Guardar cambios</button>
+          <a class="btn btn-outline-secondary" href="{% url 'perfil' %}">Cancelar</a>
+        </div>
+      </form>
+      <div class="mt-3">
+        <a href="{% url 'password_change' %}">Cambiar contraseña</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+

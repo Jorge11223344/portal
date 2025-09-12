@@ -45,7 +45,7 @@ class SolicitudArriendoForm(forms.ModelForm):
 class PerfilUserForm(forms.ModelForm):
     class Meta:
         model = PerfilUser
-        fields = ["tipo_usuario", "rut", "password"] 
+        fields = ["tipo_usuario", "rut", "first_name","last_name","email"] 
 
 
 
@@ -70,3 +70,24 @@ class RegisterForm(UserCreationForm):
 class LoginForm(AuthenticationForm):
     username = forms.CharField(label="Usuario")
     password = forms.CharField(label="Contraseña", widget=forms.PasswordInput)
+
+
+
+class BaseBootstrapForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for f in self.fields.values():
+            css = f.widget.attrs.get("class", "")
+            f.widget.attrs["class"] = (css + " form-control").strip()
+
+class RegisterForm(UserCreationForm):
+    email = forms.EmailField(required=True)
+    class Meta:
+        model = PerfilUser
+        fields = ["username","first_name","last_name","email","rut","imagen","tipo_usuario","password1","password2"]
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for f in self.fields.values():
+            css = f.widget.attrs.get("class", "")
+            f.widget.attrs["class"] = (css + " form-control").strip()

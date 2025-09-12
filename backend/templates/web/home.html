@@ -9,6 +9,35 @@
     </div>
   </div>
 
+  {# Filtros por región y comuna #}
+  <div class="mb-4">
+    <form method="get" class="row g-2">
+      <div class="col-md-4">
+        <select name="region" class="form-select">
+          <option value="">-- Todas las regiones --</option>
+          {% for r in regiones %}
+            <option value="{{ r.id }}" {% if selected_region == r.id|stringformat:"s" %}selected{% endif %}>
+              {{ r.nombre }}
+            </option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="col-md-4">
+        <select name="comuna" class="form-select">
+          <option value="">-- Todas las comunas --</option>
+          {% for c in comunas %}
+            <option value="{{ c.id }}" {% if selected_comuna == c.id|stringformat:"s" %}selected{% endif %}>
+              {{ c.nombre }}
+            </option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="col-md-4">
+        <button type="submit" class="btn btn-primary w-100">Filtrar</button>
+      </div>
+    </form>
+  </div>
+
   {% if inmuebles %}
     <div class="row g-4">
       {% for i in inmuebles %}
@@ -34,15 +63,20 @@
                 <div class="d-flex justify-content-between align-items-center mb-2">
                   <span class="h5 text-success mb-0">${{ i.precio_mensual }} / mes</span>
                 </div>
-                {% if user.is_authenticated %}
+
+                {# Mostrar botón Solicitar solo a arrendatarios autenticados #}
+                {% if user.is_authenticated and user.tipo_usuario == "ARRENDATARIO" %}
                   <a href="{% url 'solicitud_create_for_inmueble' i.id %}" class="btn btn-outline-primary w-100 btn-soft">
                     <i class="bi bi-envelope-paper me-1"></i> Solicitar Arriendo
                   </a>
-                {% else %}
+                {% elif not user.is_authenticated %}
                   <button class="btn btn-outline-secondary w-100 btn-soft" data-bs-toggle="modal" data-bs-target="#loginModal">
                     <i class="bi bi-box-arrow-in-right me-1"></i> Inicia sesión para solicitar
                   </button>
+                {% else %}
+                  {# Usuario autenticado pero NO arrendatario: no mostrar nada #}
                 {% endif %}
+
               </div>
             </div>
           </div>
@@ -54,11 +88,21 @@
       <nav class="mt-4">
         <ul class="pagination justify-content-center">
           {% if page_obj.has_previous %}
-            <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">Anterior</a></li>
+            <li class="page-item">
+              <a class="page-link" href="?page={{ page_obj.previous_page_number }}{% if querystring %}&{{ querystring }}{% endif %}">
+                Anterior
+              </a>
+            </li>
           {% endif %}
-          <li class="page-item disabled"><span class="page-link">Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}</span></li>
+          <li class="page-item disabled">
+            <span class="page-link">Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}</span>
+          </li>
           {% if page_obj.has_next %}
-            <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">Siguiente</a></li>
+            <li class="page-item">
+              <a class="page-link" href="?page={{ page_obj.next_page_number }}{% if querystring %}&{{ querystring }}{% endif %}">
+                Siguiente
+              </a>
+            </li>
           {% endif %}
         </ul>
       </nav>

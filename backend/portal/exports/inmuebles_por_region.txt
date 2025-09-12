@@ -1,0 +1,37 @@
+=== REGIÓN: Antofagasta ===
+- casa 1234
+  casa bonmita
+- casa 167
+  gdded
+
+=== REGIÓN: Biobío ===
+- Casa de Pablito
+  Casa de Pablito en Concepción
+
+=== REGIÓN: La Araucanía ===
+- Departamento con Vista al Mar en Viña del Mar
+  Luminoso departamento en primerísima línea, ideal para vacaciones o vivir todo el año.
+- Espaciosa Parcela en Olmué
+  Ideal para construir tu casa de descanso, con vista a la cordillera y aire puro.
+
+=== REGIÓN: Magallanes y de la Antártica Chilena ===
+- Terreno en Puerto Varas
+  Terreno ideal para cabañas con vista al lago Llanquihue y al volcán Osorno.
+
+=== REGIÓN: Metropolitana de Santiago ===
+- Amplia Oficina en Providencia
+  Oficina con divisiones y excelente iluminación natural, cercana a metro y servicios.
+- Chalet en La Reina
+  Espectacular chalet de estilo europeo, rodeado de naturaleza, en un barrio tranquilo.
+- Departamento Nuevo en Ñuñoa
+  Departamento a estrenar con finas terminaciones, a minutos del centro de la ciudad.
+- Gran Bodega Industrial en Maipú
+  Bodega de gran altura con acceso para camiones, ideal para almacenamiento o producción.
+- Local Comercial en Pucón
+  Estratégico local comercial en el centro de Pucón, ideal para rubro turístico.
+- Moderno Departamento en Santiago Centro
+  Departamento amoblado con excelente conectividad, a pasos del metro y el centro financiero.
+
+=== REGIÓN: Tarapacá ===
+- casa 123
+  casa bonita

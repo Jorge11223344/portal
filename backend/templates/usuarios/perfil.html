@@ -1,109 +1,69 @@
 {% extends "web/base.html" %}
 {% block title %}Mi perfil | Alquiler{% endblock %}
 {% block content %}
-<section class="container py-4">
-  <div class="d-flex justify-content-between align-items-center mb-3">
-    <div>
-      <h3 class="mb-0">{{ user.get_full_name|default:user.username }}</h3>
-      <small class="text-muted">{{ user.tipo_usuario }}</small>
+<div class="container py-4">
+  <h2 class="mb-3">Mi perfil</h2>
+
+  <div class="card mb-4">
+    <div class="card-body">
+      <h4>{{ user.get_full_name|default:user.username }}</h4>
+      <p><strong>Tipo de usuario:</strong> {{ user.get_tipo_usuario_display }}</p>
+      <p><strong>RUT:</strong> {{ user.rut|default:"—" }}</p>
+      <p><strong>Email:</strong> {{ user.email|default:"—" }}</p>
+      {% if user.imagen %}
+        <img src="{{ user.imagen.url }}" alt="Foto de perfil" style="width:120px;height:120px;object-fit:cover;">
+      {% endif %}
+      <div class="mt-3">
+        <a href="{% url 'perfil_editar' %}" class="btn btn-primary">Editar perfil</a>
+      </div>
     </div>
-    {% if user.tipo_usuario == "ARRENDADOR" %}
-      <a href="{% url 'perfil_inmueble_list' %}" class="btn btn-primary btn-soft">
-        <i class="bi bi-buildings me-1"></i> Gestionar mis inmuebles
-      </a>
-    {% endif %}
   </div>
 
-  {% if user.tipo_usuario == "ARRENDATARIO" %}
-    <div class="card shadow-soft mb-4">
-      <div class="card-body">
-        <h5 class="mb-3">Mis solicitudes enviadas</h5>
-        {% if enviadas %}
-          <div class="list-group">
-            {% for s in enviadas %}
-              <div class="list-group-item list-group-item-action py-3">
-                <div class="d-flex w-100 justify-content-between">
-                  <h6 class="mb-1">{{ s.inmueble.nombre }}</h6>
-                  <span class="badge 
-                    {% if s.estado == 'A' %} bg-success
-                    {% elif s.estado == 'R' %} bg-danger
-                    {% else %} bg-secondary
-                    {% endif %}">
-                    {{ s.get_estado_display }}
-                  </span>
-                </div>
-                <small class="text-muted">{{ s.inmueble.comuna.nombre }} · {{ s.creado|date:"d/m/Y H:i" }}</small>
-                <p class="mb-0 mt-1">{{ s.mensaje|default:"(sin mensaje)" }}</p>
-              </div>
-            {% endfor %}
-          </div>
-        {% else %}
-          <div class="alert alert-info mb-0">Aún no envías solicitudes.</div>
-        {% endif %}
-      </div>
-    </div>
-  {% endif %}
-
   {% if user.tipo_usuario == "ARRENDADOR" %}
-    <div class="card shadow-soft">
-      <div class="card-body">
-        <h5 class="mb-3">Solicitudes recibidas (mis inmuebles)</h5>
-        {% if recibidas %}
-          <div class="table-responsive">
-            <table class="table align-middle">
-              <thead>
-                <tr>
-                  <th>Inmueble</th>
-                  <th>Arrendatario</th>
-                  <th>Mensaje</th>
-                  <th>Estado</th>
-                  <th>Fecha</th>
-                  <th class="text-end">Acciones</th>
-                </tr>
-              </thead>
-              <tbody>
-                {% for s in recibidas %}
-                  <tr>
-                    <td>{{ s.inmueble.nombre }}<br><small class="text-muted">{{ s.inmueble.comuna.nombre }}</small></td>
-                    <td>{{ s.arrendatario.get_full_name|default:s.arrendatario.username }}</td>
-                    <td>{{ s.mensaje|default:"-" }}</td>
-                    <td>
-                      <span class="badge 
-                        {% if s.estado == 'A' %} bg-success
-                        {% elif s.estado == 'R' %} bg-danger
-                        {% else %} bg-secondary
-                        {% endif %}">
-                        {{ s.get_estado_display }}
-                      </span>
-                    </td>
-                    <td><small>{{ s.creado|date:"d/m/Y H:i" }}</small></td>
-                    <td class="text-end">
-                      {% if s.estado == 'P' %}
-                        <form method="post" action="{% url 'solicitud_aceptar' s.pk %}" class="d-inline">
-                          {% csrf_token %}
-                          <input type="hidden" name="next" value="{% url 'perfil' %}">
-                          <button type="submit" class="btn btn-sm btn-success">Aceptar</button>
-                        </form>
-                        <form method="post" action="{% url 'solicitud_rechazar' s.pk %}" class="d-inline ms-1">
-                          {% csrf_token %}
-                          <input type="hidden" name="next" value="{% url 'perfil' %}">
-                          <button type="submit" class="btn btn-sm btn-outline-danger">Rechazar</button>
-                        </form>
-                      {% else %}
-                        <span class="text-muted small">Sin acciones</span>
-                      {% endif %}
-                    </td>
-                  </tr>
-                {% endfor %}
-              </tbody>
+    <h3 class="mb-2">Solicitudes recibidas</h3>
+    {% if recibidas %}
+      <ul class="list-group mb-4">
+        {% for s in recibidas %}
+          <li class="list-group-item">
+            <strong>{{ s.inmueble.nombre }}</strong> — {{ s.arrendatario.get_full_name|default:s.arrendatario.username }}
+            <br>
+            Mensaje: {{ s.mensaje }}
+            <br>
+            Estado: <span class="badge bg-secondary">{{ s.get_estado_display }}</span>
 
-            </table>
-          </div>
-        {% else %}
-          <div class="alert alert-info mb-0">Aún no recibes solicitudes.</div>
-        {% endif %}
-      </div>
-    </div>
+            <div class="mt-2 d-flex gap-2">
+              <form method="post" action="{% url 'solicitud_aceptar' s.pk %}">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-sm btn-success">Aceptar</button>
+              </form>
+              <form method="post" action="{% url 'solicitud_rechazar' s.pk %}">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-sm btn-danger">Rechazar</button>
+              </form>
+            </div>
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>No tienes solicitudes recibidas.</p>
+    {% endif %}
   {% endif %}
-</section>
+
+  <h3 class="mb-2">Solicitudes enviadas</h3>
+  {% if enviadas %}
+    <ul class="list-group">
+      {% for s in enviadas %}
+        <li class="list-group-item">
+          <strong>{{ s.inmueble.nombre }}</strong> — {{ s.inmueble.comuna.nombre }}
+          <br>
+          Mensaje: {{ s.mensaje }}
+          <br>
+          Estado: <span class="badge bg-secondary">{{ s.get_estado_display }}</span>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No has enviado solicitudes.</p>
+  {% endif %}
+</div>
 {% endblock %}

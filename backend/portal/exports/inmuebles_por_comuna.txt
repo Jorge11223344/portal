@@ -1,0 +1,51 @@
+=== COMUNA: antofagasta ===
+- casa 167
+  gdded
+
+=== COMUNA: calama ===
+- casa 1234
+  casa bonmita
+
+=== COMUNA: calera de tango ===
+- Amplia Oficina en Providencia
+  Oficina con divisiones y excelente iluminación natural, cercana a metro y servicios.
+
+=== COMUNA: cholchol ===
+- Espaciosa Parcela en Olmué
+  Ideal para construir tu casa de descanso, con vista a la cordillera y aire puro.
+
+=== COMUNA: colchane ===
+- casa 123
+  casa bonita
+
+=== COMUNA: galvarino ===
+- Departamento con Vista al Mar en Viña del Mar
+  Luminoso departamento en primerísima línea, ideal para vacaciones o vivir todo el año.
+
+=== COMUNA: isla de maipo ===
+- Moderno Departamento en Santiago Centro
+  Departamento amoblado con excelente conectividad, a pasos del metro y el centro financiero.
+
+=== COMUNA: ñuñoa ===
+- Chalet en La Reina
+  Espectacular chalet de estilo europeo, rodeado de naturaleza, en un barrio tranquilo.
+
+=== COMUNA: punta arenas ===
+- Terreno en Puerto Varas
+  Terreno ideal para cabañas con vista al lago Llanquihue y al volcán Osorno.
+
+=== COMUNA: renca ===
+- Gran Bodega Industrial en Maipú
+  Bodega de gran altura con acceso para camiones, ideal para almacenamiento o producción.
+
+=== COMUNA: san pedro de la paz ===
+- Casa de Pablito
+  Casa de Pablito en Concepción
+
+=== COMUNA: santiago ===
+- Local Comercial en Pucón
+  Estratégico local comercial en el centro de Pucón, ideal para rubro turístico.
+
+=== COMUNA: til til ===
+- Departamento Nuevo en Ñuñoa
+  Departamento a estrenar con finas terminaciones, a minutos del centro de la ciudad.
